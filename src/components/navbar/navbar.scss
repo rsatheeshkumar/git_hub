@@ -1,0 +1,19 @@
+.layout {
+  display: flex;
+  height: 100%;
+}
+
+.navigation {
+  min-height: 61px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav {
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+  &link {
+    display: block;
+  }
+}
