@@ -8,7 +8,7 @@ export const getUsers = () => {
       const data = await getMethod("/users", null);
       dispatch({ type: GET_USERS, payload: data.data });
     } catch {
-      dispatch({ type: ERROR_AND_LOADING, payload: false });
+      dispatch({ type: ERROR_AND_LOADING });
     }
   };
 };

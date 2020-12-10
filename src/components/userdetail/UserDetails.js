@@ -1,14 +1,30 @@
 import React, { useEffect } from "react";
+import { Spinner, Alert } from "reactstrap";
+import PropTypes from "prop-types";
 
 import "./userDetails.scss";
 import { connect } from "react-redux";
 import { getDetail } from "./actions";
 
-const UserDetails = ({ login, getDetail, userDetail }) => {
+const UserDetails = ({ login, getDetail, userDetail, loading, error }) => {
   useEffect(() => {
     getDetail(login);
   }, [getDetail, login]);
-  // console.log(userDetail);
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center p-5">
+        <Spinner color="primary" />
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <Alert color="danger" className="text-center">
+        Something went wrong
+      </Alert>
+    );
+  }
+
   return (
     <div className="chat-body">
       <div className="chat-header border-bottom py-4 py-lg-6 px-lg-8">
@@ -57,10 +73,18 @@ const UserDetails = ({ login, getDetail, userDetail }) => {
   );
 };
 
+UserDetails.propTypes = {
+  userDetail: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  getDetail: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({ detailReducer }) => {
-  // console.log(detailReducer);
   return {
     userDetail: detailReducer.userDetail,
+    loading: detailReducer.loading,
+    error: detailReducer.error,
   };
 };
 

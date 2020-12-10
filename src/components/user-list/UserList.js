@@ -44,7 +44,6 @@ UserList.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     users: state.userReducer.users,
     loading: state.userReducer.loading,
@@ -53,7 +52,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  console.log(dispatch);
   return {
     getUsers: () => dispatch(getUsers()),
   };

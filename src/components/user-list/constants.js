@@ -1,4 +1,4 @@
-export const GET_USERS = "GET_USERS";
-export const LOADING = "LOADING";
-export const ERROR = "ERROR";
-export const ERROR_AND_LOADING = "ERROR_AND_LOADING";
+export const GET_USERS = "USER_LIST_GET_USERS";
+export const LOADING = "USER_LIST_LOADING";
+export const ERROR = "USER_LIST_ERROR";
+export const ERROR_AND_LOADING = "USER_LIST_ERROR_AND_LOADING";
