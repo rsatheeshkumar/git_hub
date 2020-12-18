@@ -1,3 +1,4 @@
 export const GET_USERS_DETAIL = "USER_DETAIL_GET_USERS_DETAIL";
 export const LOADING = "USER_DETAIL_LOADING";
 export const ERROR = "USER_DETAIL_ERROR";
+export const GET_REPO = "GET_REPO";

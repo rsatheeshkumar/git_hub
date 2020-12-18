@@ -8,7 +8,7 @@ import "./mainbar.scss";
 const Mainbar = ({ match }) => {
   // console.log({ match });
   return (
-    <div className="main w-100">
+    <div className="wrapper">
       <UserDetails login={match.params.login} />
     </div>
   );

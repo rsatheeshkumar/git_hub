@@ -1,15 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+// import { Switch, Route, useRouteMatch, Link } from "react-router-dom";
 import { Spinner, Alert } from "reactstrap";
 import PropTypes from "prop-types";
-
-import "./userDetails.scss";
 import { connect } from "react-redux";
+
+import UserDetailCard from "./userdetailcard/UserDetailCard";
+import UserDetailNav from "./user-detail-nav/UserDetailNav";
+// import Repos from "../userdetailpage/Repos";
+import CurrentPage from "./CurrentPage";
+
 import { getDetail } from "./actions";
 
+import "./userDetails.scss";
+
 const UserDetails = ({ login, getDetail, userDetail, loading, error }) => {
+  const [currentPage, setCurrentPage] = useState("profile");
+
+  // console.log(userDetail);
+
+  const navigateTo = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   useEffect(() => {
     getDetail(login);
   }, [getDetail, login]);
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center p-5">
@@ -26,49 +43,10 @@ const UserDetails = ({ login, getDetail, userDetail, loading, error }) => {
   }
 
   return (
-    <div className="chat-body">
-      <div className="chat-header border-bottom py-4 py-lg-6 px-lg-8">
-        <div className="container-xxl">
-          <div className="media text-center text-xl-left">
-            <div className="avatar">
-              <img
-                className="avatar-img"
-                src={userDetail.avatar_url}
-                alt={userDetail.name}
-              />
-            </div>
-
-            <div className="media-body align-self-center text-truncate">
-              <h6 className="text-truncate mb-n1">{userDetail.name}</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="chat-content px-lg-8">
-        <div className="card">
-          <img className="card-img" src={userDetail.avatar_url} alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">Details</h5>
-            <p className="card-text">
-              events url :{" "}
-              <a href="{userDetail.events_url}">{userDetail.events_url}</a>
-            </p>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">
-              {" "}
-              followers :{userDetail.followers}
-            </li>
-            <li className="list-group-item">
-              following :{userDetail.following}
-            </li>
-            <li className="list-group-item">
-              {" "}
-              GitHub Url :<a href="{userDetail.url}">{userDetail.url}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div className="page">
+      <UserDetailCard userDetail={userDetail} />
+      <UserDetailNav navigateTo={navigateTo} />
+      <CurrentPage currentPage={currentPage} />
     </div>
   );
 };
