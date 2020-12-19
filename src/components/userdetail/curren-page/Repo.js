@@ -26,7 +26,7 @@ const Repo = ({ repo }) => {
               <h6 className="card-subtitle text-muted"> {repo.language} </h6>
             </div>
             <div className="drop-down">
-              <DropDown />
+              <DropDown repo={repo} />
             </div>
           </div>
           <p>

@@ -14,7 +14,7 @@ const Home = () => (
     <Sidebar />
     <Switch>
       <Route path="/users/:login" component={Mainbar} />
-      {/* <Redirect to="/users" /> */}
+      <Redirect to="/users/mojombo" />
     </Switch>
   </div>
 );
