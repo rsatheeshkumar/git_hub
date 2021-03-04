@@ -10,7 +10,7 @@ const Overview = ({ userDetail }) => <h1>Overview PAge</h1>;
 const Project = ({ userDetail }) => <h1>Project PAge</h1>;
 
 const CurrentPage = ({ currentPage, userDetail }) => {
-  console.log(userDetail);
+  // console.log(userDetail);
   switch (currentPage) {
     case "profile":
       return <Profile userDetail={userDetail} />;

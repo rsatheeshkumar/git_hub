@@ -7,7 +7,7 @@ import { getRepo } from "./repoAction";
 import "./repositories.scss";
 
 const Repositories = ({ repos, onGetRepo, login }) => {
-  console.log(repos);
+  // console.log(repos);
   useEffect(() => {
     onGetRepo(login);
   }, [onGetRepo, login]);
@@ -17,7 +17,6 @@ const Repositories = ({ repos, onGetRepo, login }) => {
         <div className="masonry-layout">
           {/* <Repo /> */}
           {repos.map((repo) => {
-            console.log(repo);
             return <Repo key={repo.id} repo={repo} />;
           })}
         </div>
@@ -27,7 +26,7 @@ const Repositories = ({ repos, onGetRepo, login }) => {
 };
 
 const mapStateToProps = ({ repoReducer }) => {
-  console.log(repoReducer);
+  // console.log(repoReducer);
   return {
     repos: repoReducer.userRepo,
   };

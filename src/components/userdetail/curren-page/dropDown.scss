@@ -2,12 +2,18 @@
   margin: 0.125rem -378px 0px;
 }
 .ssh {
+  position: absolute;
+  width: 290px;
   margin-right: 6px;
   font-weight: 600;
   border: groove;
 }
 
 .button {
-  font-weight: 600;
+  padding: 4px;
+  padding-top: 0px;
+  padding-bottom: 6px;
+  position: inherit;
+  margin-left: 300px;
   border: groove;
 }

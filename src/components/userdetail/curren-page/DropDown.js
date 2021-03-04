@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import { GrCopy } from "react-icons/gr";
 
 import "./dropDown.scss";
 
@@ -25,7 +26,7 @@ const DropDown = ({ repo }) => {
     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
       <DropdownToggle caret>SSH</DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>
+        <DropdownItem className="drop-down-key">
           <input
             className="ssh"
             ref={textAreaRef}
@@ -33,7 +34,9 @@ const DropDown = ({ repo }) => {
           />
           {document.queryCommandSupported("copy") && (
             <div>
-              <button onClick={copyToClipboard}>Copy</button>
+              <span className="button" onClick={copyToClipboard}>
+                <GrCopy />
+              </span>
               {copySuccess}
             </div>
           )}

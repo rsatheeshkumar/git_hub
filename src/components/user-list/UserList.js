@@ -7,7 +7,7 @@ import UserCard from "../user-card/UserCard";
 import { getUsers } from "./actions";
 
 const UserList = ({ users, loading, error, getUsers }) => {
-  console.log(users);
+  // console.log(users);
   useEffect(() => {
     getUsers();
   }, [getUsers]);

@@ -7,7 +7,7 @@ import DropDown from "./DropDown";
 import "./repo.scss";
 
 const Repo = ({ repo }) => {
-  console.log(repo);
+  // console.log(repo);
   return (
     <div className="masonry-item col-lg-6">
       <div className="card card-fluid">
