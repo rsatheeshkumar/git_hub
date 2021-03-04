@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Navbar from "../navbar/Navbar";
 import Sidebar from "../sidebar/Sidebar";
@@ -14,7 +14,6 @@ const Home = () => (
     <Sidebar />
     <Switch>
       <Route path="/users/:login" component={Mainbar} />
-      {/* <Redirect to="/users/mojombo" /> */}
     </Switch>
   </div>
 );
